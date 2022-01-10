@@ -87,6 +87,9 @@ class LinkedList:
         count = 0
         while itr:
             if itr.data == data_after:
+                if itr.next is None:
+                    self.insert_at_end(data_to_insert)
+                    return
                 self.insert_at(count + 1, data_to_insert)
                 return
             itr = itr.next
@@ -114,7 +117,8 @@ if __name__ == '__main__':
     ll = LinkedList()
     ll.insert_values(["banana", "mango", "grapes", "orange"])
     ll.print()
-    ll.insert_after_value("mango", "apple")  # insert apple after mango
+    ll.insert_after_value("orange", "apple")
+    ll.insert_after_value("apple", "dog")# insert apple after mango
     ll.print()
     ll.remove_by_value("orange")  # remove orange from linked list
     ll.print()
@@ -125,3 +129,4 @@ if __name__ == '__main__':
     ll.remove_by_value("apple")
     ll.remove_by_value("grapes")
     ll.print()
+

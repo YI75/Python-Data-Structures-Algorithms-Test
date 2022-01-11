@@ -12,9 +12,9 @@ class HashTable:
     def __setitem__(self, key, value):
         h = self.get_hash(key)
         found = False
-        for idx, element in enumerate(self.arr[h]):
+        for index, element in enumerate(self.arr[h]):
             if len(element) == 2 and element[0] == key:
-                self.arr[h][idx] = (key, value)
+                self.arr[h][index] = (key, value)
                 found = True
                 break
         if not found:
